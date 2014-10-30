@@ -14,6 +14,13 @@ Template.header.events({
             
             Router.go('editPost', {_id: result._id});
         });
+    },
+
+    'click .logout': function(e) {
+        if(Meteor.user()) {
+            Meteor.logout();
+            Router.go('home');
+        }
     }
 
 });

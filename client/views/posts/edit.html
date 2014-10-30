@@ -1,17 +1,28 @@
 <template name="editPost">
     
-    <form id="editPostForm" enctype="multipart/form-data">
+    <div class="post-editor">
+        
+        <div class="title">
+            <input type="text" name="title" value="{{title}}">
+        </div>
+
+    </div>
+    <form></form>
+
+
+    <form enctype="multipart/form-data">
         <input type="text" name="title" id="title" value="{{title}}">
         <input type="text" name="content" id="content" value="{{content}}">
-        <input type="file" name="files" id="files">
         <input type="submit">
     </form>
 
-    <button id="deletePost">Delete</button>
-    <button id="publish">Publish</button>
+    <input type="file" name="image" id="image">
 
-</template>
+    <a href="#" class="delete">Delete</a>
+    {{#if isPublished}}
+    <a href="#" class="unpublish">Unpublish</a>
+    {{else}}
+    <a href="#" class="publish">Publish</a>
+    {{/if}}
 
-<template name="test">
-    <img src="{{image.url store='thumbnail'}}" alt="">
 </template>

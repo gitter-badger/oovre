@@ -3,49 +3,69 @@ Template.editPost.helpers({
     title: function() { return this.title; },
     content: function() { return this.content; },
     status: function() { return this.status; },
-    image: function() { return Images.findOne(this.imageId); }
+    image: function() { return Images.findOne(this.imageId); },
+    isPublished: function() { return this.status === 'published'; }
 
 });
 
 Template.editPost.events({
 
-    'submit #editPostForm': function(e) {
+    'submit form': function(e) {
         e.preventDefault();
 
-        var image;
         var currentPostId = this._id;
-        var file = $(e.target).find('[name=files]').files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            image = Images.insert({src: e.target.result});
-        };
-        reader.readAsDataURL(file);
 
         var post = {
-            title: $(e.target).find('[name=title]'),
-            content: $(e.target).find('[name=content]'),
-            imageId: image._id
+            title: $(e.target).find('[name=title]').val(),
+            content: $(e.target).find('[name=content]').val()
         };
 
         Posts.update(currentPostId, {$set: post}, function(error) {
-            // Finish updating or show errors
         });
     },
 
-    'click #publishPost': function(e) {
+    'change #image': function(e) {
+        var currentPostId = this._id;
+        FS.Utility.eachFile(e, function(file) {
+            Images.insert(file, function(err, fileObj) {
+                var post = { imageId: fileObj._id };
+                Posts.update(currentPostId, {$set: post}, function(error) {
+                    if(error)
+                        alert(error.reason);
+                });
+            });
+        });
+    },
+
+    'click .publish': function(e) {
         e.preventDefault();
 
+        var currentPostId = this._id;
         var post = {
             status: 'published'
-        }
+        };
 
-        Posts.update(this._id, {$set: post}, function(error) {
-
+        Posts.update(currentPostId, {$set: post}, function(error) {
+            if(error)
+                alert(error.reason);
+            Router.go('viewPost', {_id: currentPostId});
         });
     },
 
-    'click #deletePost': function(e) {
+    'click .unpublish': function(e) {
+        e.preventDefault();
+
+        var currentPostId = this._id;
+        var post = {status: 'draft'}
+
+        Posts.update(currentPostId, {$set:post}, function(error) {
+            if(error)
+                alert(error.reason);
+            Router.go('editPost', {_id: currentPostId});
+        });
+    },
+
+    'click .delete': function(e) {
         e.preventDefault();
         if(confirm('Delete this post?')) {
             var currentPostId = this._id;

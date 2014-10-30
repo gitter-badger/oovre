@@ -10,12 +10,13 @@
             <div class="navigation">
                 <ul>
                     <li><a href="{{pathFor 'home'}}">Home</a></li>
-                    <li><a href="{{pathFor 'myPosts'}}">My Posts</a></li>
+                    {{#if currentUser}}<li><a href="{{pathFor 'myPosts'}}">My Posts</a></li>{{/if}}
                 </ul>
             </div>
 
             {{#if currentUser}}
             <div class="account-info">
+            <a href="#" class="logout">Logout</a>
             </div>
             {{else}}
             <div class="account-signup">
