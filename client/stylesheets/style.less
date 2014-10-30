@@ -1,0 +1,59 @@
+.main-header {
+
+  background-color:#333;
+  min-height:50px;
+  padding:10px 10px;
+
+  .logo {
+    float:left;
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  .new-post {
+    color:#fff;
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:20px;
+  }
+
+  .navigation {
+    float:left;
+    ul {
+      padding: 15px 0px;
+      margin: 0;
+      li {
+        display:inline-block;
+        &:first-of-type {
+          a{ padding-left:0px; }
+        }
+        a {
+          padding: 10px 10px;
+          font-size:14px;
+          text-decoration:none;
+          color:#fff;
+          -webkit-transition: color 200ms ease;
+          -o-transition: color 200ms ease;
+          transition: color 200ms ease;
+
+          &:hover {
+            color:darken(#fff, 30%);
+          }
+        }
+      }
+    }
+    &:after {
+      content: "";
+      display:block;
+      clear:both;
+    }
+  }
+
+  .account-signup {
+    float:right;
+  }
+
+}

@@ -1,0 +1,8 @@
+<template name="myPosts">
+    {{#each posts}}
+        <div>{{title}}</div>
+        <div>{{content}}</div>
+        <div>{{status}}</div>
+        <div><a href="{{pathFor 'editPost'}}">Edit</a></div>
+    {{/each}}
+</template>
