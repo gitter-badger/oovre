@@ -43,6 +43,15 @@ Template.editPost.events({
         Posts.update(this._id, {$set: post}, function(error) {
 
         });
+    },
+
+    'click #deletePost': function(e) {
+        e.preventDefault();
+        if(confirm('Delete this post?')) {
+            var currentPostId = this._id;
+            Posts.remove(currentPostId);
+            Router.go('home');
+        }
     }
 
 });
