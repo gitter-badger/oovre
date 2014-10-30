@@ -1,7 +1,16 @@
 <template name="editPost">
     
-    {{title}}
-    {{content}}
-    {{status}}
+    <form id="editPostForm" enctype="multipart/form-data">
+        <input type="text" name="title" id="title" value="{{title}}">
+        <input type="text" name="content" id="content" value="{{content}}">
+        <input type="file" name="files" id="files">
+        <input type="submit">
+    </form>
 
+    
+
+</template>
+
+<template name="test">
+    <img src="{{image.url store='thumbnail'}}" alt="">
 </template>
