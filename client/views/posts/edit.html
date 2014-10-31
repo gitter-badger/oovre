@@ -2,20 +2,14 @@
     
     <div class="post-editor">
         
-        <div class="title">
-            <input type="text" name="title" value="{{title}}">
+        <div class="featured-image">
+            <input type="file" name="image" id="image">
         </div>
 
+        <input type="text" class="title" name="title" value="{{title}}">
+        <div class="post-content content-editor" contenteditable>{{content}}</div>
+
     </div>
-
-    <input type="file" name="image" id="image">
-
-    <a href="#" class="delete">Delete</a>
-    {{#if isPublished}}
-    <a href="#" class="unpublish">Unpublish</a>
-    {{else}}
-    <a href="#" class="publish">Publish</a>
-    {{/if}}
 
     <img src="{{image.url}}" alt="">
 

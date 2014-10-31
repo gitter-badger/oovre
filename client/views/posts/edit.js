@@ -40,7 +40,7 @@ Template.editPost.events({
         });
     },
 
-    'click .publish': function(e) {
+    'click #publish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
@@ -55,11 +55,13 @@ Template.editPost.events({
         });
     },
 
-    'click .unpublish': function(e) {
+    'click #unpublish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
-        var post = {status: 'draft'}
+        var post = {status: 'draft'};
+
+        console.log(Router.current());
 
         Posts.update(currentPostId, {$set:post}, function(error) {
             if(error)
@@ -68,7 +70,7 @@ Template.editPost.events({
         });
     },
 
-    'click .delete': function(e) {
+    'click #delete': function(e) {
         e.preventDefault();
         if(confirm('Delete this post?')) {
             var currentPostId = this._id;

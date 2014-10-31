@@ -1,6 +1,12 @@
-Router.route('/:_id/edit', { 
-    name: 'editPost',
-    data: function() { return Posts.findOne(this.params._id); }
+Router.map(function() {
+
+	this.route('editPost', {
+		path: '/:_id/edit',
+		data: function() {
+			return Posts.findOne(this.params._id);
+		}
+	});
+
 });
 
 Router.route('/:_id', {
