@@ -6,11 +6,19 @@
             <input type="file" name="image" id="image">
         </div>
 
-        <input type="text" class="title" name="title" value="{{title}}">
-        <div class="post-content content-editor" contenteditable>{{content}}</div>
+        <input type="text" id="title" class="title" name="title" value="{{title}}">
+        <div id="content" class="post-content content-editor" contenteditable="true">{{{content}}}</div>
 
     </div>
 
-    <img src="{{image.url}}" alt="">
+    <img src="{{image.url}}" alt="" width="100%" height="auto">
+    
+    <a href="{{pathFor 'viewPost'}}" id="view">View</a>
+    <a href="#" id="delete">Delete</a>
+    {{#if isPublished}}
+    <a href="#" id="unpublish">Unpublish</a>
+    {{else}}
+    <a href="#" id="publish">Publish</a>
+    {{/if}}
 
 </template>

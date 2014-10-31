@@ -10,18 +10,14 @@ Template.editPost.helpers({
 
 Template.editPost.events({
 
-    'submit form': function(e) {
-        e.preventDefault();
-
+    'change #title': function(e) {
         var currentPostId = this._id;
-
-        var post = {
-            title: $(e.target).find('[name=title]').val(),
-            content: $(e.target).find('[name=content]').val()
-        };
+        var post = { title: $(e.target).val() };
 
         Posts.update(currentPostId, {$set: post}, function(error) {
-        });
+            if(error)
+                alert(error.reason);
+        })
     },
 
     'change #image': function(e) {
@@ -38,6 +34,19 @@ Template.editPost.events({
                 });
             });
         });
+    },
+
+    'blur #content': function(e) {
+        e.preventDefault();
+        var currentPostId = this._id;
+        var post = {
+            content: $('#content').html()
+        };
+
+        Posts.update(currentPostId, {$set: post}, function(error) {
+            if(error)
+                alert(error.reason);
+        })
     },
 
     'click #publish': function(e) {
