@@ -28,7 +28,10 @@ Template.editPost.events({
         var currentPostId = this._id;
         FS.Utility.eachFile(e, function(file) {
             Images.insert(file, function(err, fileObj) {
+                if(err)
+                    alert(err.reason);
                 var post = { imageId: fileObj._id };
+                console.log(fileObj);
                 Posts.update(currentPostId, {$set: post}, function(error) {
                     if(error)
                         alert(error.reason);
