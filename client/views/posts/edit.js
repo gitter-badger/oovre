@@ -44,8 +44,7 @@ Template.editPost.events({
         };
 
         Posts.update(currentPostId, {$set: post}, function(error) {
-            if(error)
-                alert(error.reason);
+            $('#content').html(post.content);
         })
     },
 

@@ -1,3 +1,3 @@
 Template.postItem.helpers({
-    image: function() {}
+    image: function() { return Images.findOne(this.imageId); }
 });

@@ -1,5 +1,12 @@
 <template name="postItem">
-    <figure class="post">
-        <img src="" alt="">
-    </figure>
+
+    <div class="post">
+        <img src="{{image.url}}" alt="">
+        <div class="caption">
+            <h2>{{title}}</h2>
+            <p>{{title}}</p>
+            <a href="{{pathFor 'viewPost'}}">View more</a>
+        </div>
+    </div>
+
 </template>
