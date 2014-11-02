@@ -1,6 +1,17 @@
 <template name="growler">
-    {{> notification}}
+	<div class="growler">
+		{{#each growls}}
+	    	{{> growl}}
+		{{/each}}
+	</div>
 </template>
 
-<template name="notification">
+<template name="growl">
+	
+	<div class="growl">
+		<a href="{{resourceUrl}}">
+			<span class="message">{{message}}</span>
+		</a>
+	</div>
+
 </template>
