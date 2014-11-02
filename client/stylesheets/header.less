@@ -4,11 +4,11 @@
   
   .stuff-container {
     position:absolute;
-    left:100px;
-    right:100px;
+    left:200px;
+    right:200px;
     top:0;
-    width:100%;
     .menu {
+      float:left;
       padding:10px 0px;
       ul {
         list-style:none;
@@ -24,6 +24,27 @@
           }
         }
       }
+    }
+
+    .account-info {
+      float:right;
+      span {
+        display:block;
+        text-align:right;
+      }
+
+      .name {
+        color:#fff;
+        font-size:16px;
+      }
+
+      .actions {
+        font-size:14px;
+      }
+    }
+
+    .account-signup {
+      float:right;
     }
   }
 
