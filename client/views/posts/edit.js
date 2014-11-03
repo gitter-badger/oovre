@@ -10,30 +10,10 @@ Template.editPost.helpers({
 
 Template.editPost.events({
 
-    'submit form': function(e) {
-        e.preventDefault();
-
-        var currentPostId = this._id;
-
-        var post = {
-            title: $(e.target).find('[name=title]').val(),
-            content: $(e.target).find('[name=content]').val()
-        };
-
-        Posts.update(currentPostId, {$set: post}, function(error) {
-        });
-    },
-
-    'change #image': function(e) {
-        var currentPostId = this._id;
-        FS.Utility.eachFile(e, function(file) {
-            Images.insert(file, function(err, fileObj) {
-                var post = { imageId: fileObj._id };
-                Posts.update(currentPostId, {$set: post}, function(error) {
-                    if(error)
-                        alert(error.reason);
-                });
-            });
+    'blur #title': function(e) {
+        var post = { title: $(e.target).val() };
+        Meteor.call('savePost', post, function(error, result) {
+            alert(result._id);
         });
     },
 

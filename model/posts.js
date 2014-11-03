@@ -26,5 +26,5 @@ Meteor.methods({
             _id: postId
         };
     }
-
+    
 });

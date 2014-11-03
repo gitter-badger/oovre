@@ -3,22 +3,18 @@
     <div class="post-editor">
         
         <div class="title">
-            <input type="text" name="title" value="{{title}}">
+            <input id="title" type="text" name="title" value="{{title}}">
+        </div>
+
+        <div id="content-editor" class="content-editor" contenteditable>
         </div>
 
     </div>
-    <form></form>
 
-
-    <form enctype="multipart/form-data">
-        <input type="text" name="title" id="title" value="{{title}}">
-        <input type="text" name="content" id="content" value="{{content}}">
-        <input type="submit">
-    </form>
-
-    <input type="file" name="image" id="image">
+    <!-- <input type="file" name="image" id="image"> -->
 
     <a href="#" class="delete">Delete</a>
+
     {{#if isPublished}}
     <a href="#" class="unpublish">Unpublish</a>
     {{else}}
