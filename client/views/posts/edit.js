@@ -8,6 +8,11 @@ Template.editPost.helpers({
 
 });
 
+Template.editPost.rendered = function() {
+    var editor = new MediumEditor('#content');
+    $('#content').html(this.content);
+};
+
 Template.editPost.events({
 
     'change #title': function(e) {
@@ -36,7 +41,7 @@ Template.editPost.events({
         });
     },
 
-    'blur #content': function(e) {
+    'input #content': function(e) {
         e.preventDefault();
         var currentPostId = this._id;
         var post = {

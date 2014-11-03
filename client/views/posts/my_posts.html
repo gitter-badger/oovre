@@ -1,8 +1,26 @@
 <template name="myPosts">
-    {{#each posts}}
-        <div>{{title}}</div>
-        <div>{{content}}</div>
-        <div>{{status}}</div>
-        <div><a href="{{pathFor 'editPost'}}">Edit</a></div>
-    {{/each}}
+    <table class="table table-hover my-posts">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Views</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each posts}}
+            <tr>
+                <td><a href="{{pathFor 'viewPost'}}">{{title}}</a></td>
+                <td>{{status}}</td>
+                <td>20</td>
+                <td>
+                    <a href="{{pathFor 'editPost'}}">Edit</a>
+                    <a href="{{pathFor 'viewPost'}}" id="view">View</a>
+                    <a href="#" class="delete">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </template>

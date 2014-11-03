@@ -7,7 +7,7 @@ Posts.allow({
 
 Meteor.methods({
 
-    postInsert: function(postAttributes) {
+    post: function(postAttributes) {
         check(postAttributes, {
             title: String,
             content: String,

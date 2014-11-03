@@ -16,4 +16,6 @@ accounts-ui
 cfs:standard-packages
 cfs:filesystem
 cfs:ejson-file
+wylio:mandrill
+codepoet:medium-editor-npm
 

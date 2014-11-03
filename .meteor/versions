@@ -29,6 +29,7 @@ cfs:tempstore@0.0.2
 cfs:upload-http@0.0.2
 cfs:worker@0.0.0
 check@1.0.2
+codepoet:medium-editor-npm@0.0.1
 ctl-helper@1.0.4
 ctl@1.0.2
 ddp@1.0.11
@@ -90,3 +91,4 @@ underscore@1.0.1
 url@1.0.2
 webapp-hashing@1.0.1
 webapp@1.1.4
+wylio:mandrill@0.1.1

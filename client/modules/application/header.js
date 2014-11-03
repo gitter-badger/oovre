@@ -8,10 +8,9 @@ Template.header.events({
             status: "draft"
         };
 
-        Meteor.call('postInsert', post, function(err, result) {
+        Meteor.call('post', post, function(err, result) {
             if(err)
                 return alert('Error: ' + error.reason);
-            
             Router.go('editPost', {_id: result._id});
         });
     },
