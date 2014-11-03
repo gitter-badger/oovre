@@ -10,14 +10,45 @@ Template.editPost.helpers({
 
 Template.editPost.events({
 
-    'blur #title': function(e) {
+    'change #title': function(e) {
+        var currentPostId = this._id;
         var post = { title: $(e.target).val() };
-        Meteor.call('savePost', post, function(error, result) {
-            alert(result._id);
+
+        Posts.update(currentPostId, {$set: post}, function(error) {
+            if(error)
+                alert(error.reason);
+        })
+    },
+
+    'change #image': function(e) {
+        var currentPostId = this._id;
+        FS.Utility.eachFile(e, function(file) {
+            Images.insert(file, function(err, fileObj) {
+                if(err)
+                    alert(err.reason);
+                var post = { imageId: fileObj._id };
+                console.log(fileObj);
+                Posts.update(currentPostId, {$set: post}, function(error) {
+                    if(error)
+                        alert(error.reason);
+                });
+            });
         });
     },
 
-    'click .publish': function(e) {
+    'blur #content': function(e) {
+        e.preventDefault();
+        var currentPostId = this._id;
+        var post = {
+            content: $('#content').html()
+        };
+
+        Posts.update(currentPostId, {$set: post}, function(error) {
+            $('#content').html(post.content);
+        })
+    },
+
+    'click #publish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
@@ -32,11 +63,13 @@ Template.editPost.events({
         });
     },
 
-    'click .unpublish': function(e) {
+    'click #unpublish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
-        var post = {status: 'draft'}
+        var post = {status: 'draft'};
+
+        console.log(Router.current());
 
         Posts.update(currentPostId, {$set:post}, function(error) {
             if(error)
@@ -45,7 +78,7 @@ Template.editPost.events({
         });
     },
 
-    'click .delete': function(e) {
+    'click #delete': function(e) {
         e.preventDefault();
         if(confirm('Delete this post?')) {
             var currentPostId = this._id;

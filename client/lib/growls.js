@@ -1,0 +1,1 @@
+Growls = new Mongo.Collection('growls');

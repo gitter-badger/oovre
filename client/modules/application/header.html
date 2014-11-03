@@ -1,33 +1,46 @@
 <template name="header">
-
+    
     <header class="main-header">
-        <div class="logo">
-            <a href="{{pathFor 'home'}}">
-                <img src="/logo.png" alt="">
-            </a>
+
+        <div class="otherstuff-container">
+            <div class="logo">
+                <a href="{{pathFor 'home'}}">
+                    <img src="/logo.png" alt="">
+                </a>
+            </div>
+
+            <div class="other-stuff">
+                <div class="new-post">
+                    <a href="#">New Post</a>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <div class="navigation">
+
+        <div class="stuff-container">
+            <div class="menu">
                 <ul>
                     <li><a href="{{pathFor 'home'}}">Home</a></li>
-                    {{#if currentUser}}<li><a href="{{pathFor 'myPosts'}}">My Posts</a></li>{{/if}}
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="{{pathFor 'myPosts'}}">Me</a></li>
                 </ul>
             </div>
+            <div class="page-actions"></div>
 
             {{#if currentUser}}
             <div class="account-info">
-            <a href="#" class="logout">Logout</a>
+                <span class="name">{{currentUser.profile.name}}</span>
+                <span class="actions">
+                    <a href="#">Logout</a>
+                </span>
             </div>
             {{else}}
             <div class="account-signup">
                 {{> loginButtons}}
             </div>
             {{/if}}
+        </div>
 
-        </div>
-        <div class="new-post">
-            <a href="#"><i class="glyphicon glyphicon-pencil"></i></a>
-        </div>
     </header>
 
 </template>
