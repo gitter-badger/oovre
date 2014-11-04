@@ -1,12 +1,15 @@
-<template name="postItem">
-
-    <div class="post">
-        <img src="{{image.url}}" alt="">
-        <div class="caption">
-            <h2>{{title}}</h2>
-            <p>{{title}}</p>
-            <a href="{{pathFor 'viewPost'}}">View more</a>
-        </div>
+<template name="homePostItem">
+    
+    {{#if image}}
+    <div class="post" style="background:url({{image.url}});">
+        <div class="title">{{title}}</div>
+        <div class="excerpt">{{excerpt}}</div>
     </div>
-
+    {{else}}
+    <div class="post">
+        <div class="title">{{title}}</div>
+        <div class="excerpt">{{excerpt}}</div>
+    </div>
+    {{/if}}
+    
 </template>

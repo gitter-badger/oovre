@@ -14,10 +14,14 @@ Router.map(function() {
         }
     });
 
-});
+    this.route('dashboard', {
+        path: '/dashboard'
+    });
 
-Router.route('/u/posts', {
-    name: 'myPosts'
+    this.route('explore', {
+        path: '/explore'
+    });
+
 });
 
 Router.onBeforeAction(requireLogin, {only: ['myPosts', 'editPost']});

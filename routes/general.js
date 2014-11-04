@@ -1,3 +1,2 @@
 Router.route('/', { name: 'home' });
-
-Router.route('/me/edit', { name: 'editAccount' });
+Router.route('/account/edit', { name: 'editAccount' });

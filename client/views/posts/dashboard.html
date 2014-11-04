@@ -1,4 +1,6 @@
-<template name="myPosts">
+<template name="dashboard">
+
+    {{#if hasAnyPosts}}
     <table class="table table-hover my-posts">
         <thead>
             <tr>
@@ -23,4 +25,10 @@
             {{/each}}
         </tbody>
     </table>
+    {{else}}
+    <div class="jumbotron no-posts-found">
+        <h2>You haven't <a href="{{pathFor 'createPost'}}">created</a> any posts yet!</h2>
+        <p>Try <a href="{{pathFor 'explore'}}">exploring</a> to get some ideas.</p>
+    </div>
+    {{/if}}
 </template>

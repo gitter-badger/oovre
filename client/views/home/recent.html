@@ -1,0 +1,17 @@
+<template name="homeRecent">
+    <div class="recent-posts">
+        {{#each posts}}
+            {{> homeRecentPost}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="homeRecentPost">
+    <div class="post">
+        <div class="title">{{title}}</div>
+        <div class="excerpt">{{excerpt}}</div>
+        <div class="meta-data">
+            <div class="author">By {{author}}</div>
+        </div>
+    </div>
+</template>
