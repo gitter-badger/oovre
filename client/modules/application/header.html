@@ -11,7 +11,7 @@
                     <li><a href="{{pathFor 'home'}}">Home</a></li>
                     <li><a href="{{pathFor 'explore'}}">Explore</a></li>
                     <li><a href="{{pathFor 'stories'}}">Stories</a></li>
-                    <li><a href="{{pathFor 'dashboard'}}">Me</a></li>
+                    {{#if currentUser}}<li><a href="{{pathFor 'dashboard'}}">Me</a></li>{{/if}}
                 </ul>
             </div>
 

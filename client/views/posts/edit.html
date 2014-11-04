@@ -1,6 +1,20 @@
 <template name="editPost">
     
-    <div class="post-editor">
+    <div class="post-actions">
+        <ul>
+            <li><a href="{{pathFor 'viewPost'}}" class="action btn view">View</a></li>
+            <li><a href="#" class="action btn delete">Delete</a></li>
+            <li><a href="#" class="action btn publish">Publish</a></li>
+        </ul>
+    </div>
+
+    <div class="editor">
+        <div class="image"></div>
+        <div class="header" contenteditable="true"></div>
+        <div class="content" contenteditable="true"></div>
+    </div>
+
+    <!-- <div class="post-editor" data-id="{{_id}}">
         
         <div class="featured-image">
             <input type="file" name="image" id="image">
@@ -19,6 +33,6 @@
     <a href="#" id="unpublish">Unpublish</a>
     {{else}}
     <a href="#" id="publish">Publish</a>
-    {{/if}}
+    {{/if}} -->
 
 </template>

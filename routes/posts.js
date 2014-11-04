@@ -3,14 +3,16 @@ Router.map(function() {
 	this.route('editPost', {
 		path: '/:_id/edit',
 		data: function() {
-			return Posts.findOne(this.params._id);
+            var post = Posts.findOne({_id: this.params._id, userId: Meteor.userId()});
+			return post;
 		}
 	});
 
     this.route('viewPost', {
         path: '/p/:_id',
         data: function() {
-            return Posts.findOne({_id: this.params._id, status: 'published'});
+            var post = Posts.findOne({_id: this.params._id, status: 'published'});
+            return post;
         }
     });
 
@@ -24,5 +26,5 @@ Router.map(function() {
 
 });
 
-Router.onBeforeAction(requireLogin, {only: ['myPosts', 'editPost']});
+Router.onBeforeAction(requireLogin, {only: ['dashboard', 'editPost']});
 Router.onBeforeAction(ownsPost, {only: 'editPost'});

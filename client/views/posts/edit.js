@@ -48,7 +48,7 @@ Template.editPost.events({
         })
     },
 
-    'click #publish': function(e) {
+    'click .publish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
@@ -63,7 +63,7 @@ Template.editPost.events({
         });
     },
 
-    'click #unpublish': function(e) {
+    'click .unpublish': function(e) {
         e.preventDefault();
 
         var currentPostId = this._id;
@@ -78,12 +78,12 @@ Template.editPost.events({
         });
     },
 
-    'click #delete': function(e) {
+    'click .delete': function(e) {
         e.preventDefault();
         if(confirm('Delete this post?')) {
             var currentPostId = this._id;
             Posts.remove(currentPostId);
-            Router.go('home');
+            Router.go('dashboard');
         }
     }
 

@@ -10,6 +10,6 @@ Template.homeRecentPost.helpers({
     },
 
     author: function() {
-        return Meteor.users.findOne({_id: this.userId}).profile.name;
+        return Meteor.users.findOne({_id: this.userId});
     }
 });
