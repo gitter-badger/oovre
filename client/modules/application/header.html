@@ -17,12 +17,14 @@
 
             {{#if currentUser}}
             <div class="account-info">
-                <div class="name">{{currentUser.profile.name}}</div>
-                <div class="actions">
-                    <a href="#" class="logout">Logout</a>
+                <div class="details">
+                    <div class="name">{{currentUser.profile.name}}</div>
+                    <div class="actions">
+                        <a href="#" class="logout">Logout</a>
+                    </div>
                 </div>
-                <div class="new-post">
-                    <a href="#">New Post</a>
+                <div class="profile-image">
+                    <img src="{{avatar}}" alt="">
                 </div>
             </div>
             {{else}}
@@ -30,7 +32,40 @@
                 {{> loginButtons}}
             </div>
             {{/if}}
+            
+            <!-- <div class="new-post">
+                        <a href="#">New Post</a>
+                    </div> -->
+            {{#if isCurrentPost}}
+            {{> editorActions}}
+            {{else}}
+            {{> globalActions}}
+            {{/if}}
+
         </div>
     </header>
 
+</template>
+
+
+<template name="editorActions">
+    <div class="menu actions">
+        <ul>
+            {{#if isCurrentPostEdit}}
+            <li><a href="{{pathFor 'viewPost'}}" class="action view">View</a></li>
+            {{else}}
+            <li><a href="{{pathFor 'editPost'}}" class="action edit">Edit</a></li>
+            {{/if}}
+            <li><a href="#" class="action delete">Delete</a></li>
+            <li><a href="#" class="action publish">Publish</a></li>
+        </ul>
+    </div>
+</template>
+
+<template name="globalActions">
+    <div class="menu actions">
+        <ul>
+            <li><a href="#" class="new-post">Create Post</a></li>
+        </ul>
+    </div>
 </template>

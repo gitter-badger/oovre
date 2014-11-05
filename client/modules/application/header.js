@@ -1,3 +1,12 @@
+Template.header.helpers({
+    avatar: function() {
+        // for now just return gravatar image... will add uploading later.
+        return Gravatar.imageUrl(Meteor.user().emails[0].address, {
+            size: 45
+        });
+    }
+});
+
 Template.header.events({
 
     'click .new-post a': function(e) {

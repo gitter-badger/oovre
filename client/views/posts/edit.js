@@ -88,3 +88,12 @@ Template.editPost.events({
     }
 
 });
+
+Template.editorActions.events({
+
+    'click .test': function(e) {
+        e.preventDefault();
+        alert("TEST: " + this._id);
+    }
+
+});
