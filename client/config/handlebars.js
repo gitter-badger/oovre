@@ -9,4 +9,8 @@ UI.registerHelper('isCurrentPost', function() {
 
 UI.registerHelper('isCurrentPostEdit', function() {
     return isCurrentRoute('/:_id/edit') ? true : false;
-})
+});
+
+UI.registerHelper('isPublished', function() {
+    return Posts.findOne(this._id).status === 'published';
+});

@@ -7,9 +7,9 @@ Template.header.helpers({
     }
 });
 
-Template.header.events({
+Template.globalActions.events({
 
-    'click .new-post a': function(e) {
+    'click .new-post': function(e) {
 
         var post = {
             title: "New Post",

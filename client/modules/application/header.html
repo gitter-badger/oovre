@@ -58,7 +58,11 @@
             <li><a href="{{pathFor 'editPost'}}" class="action edit">Edit</a></li>
             {{/if}}
             <li><a href="#" class="action delete">Delete</a></li>
+            {{#if isPublished}}
+            <li><a href="#" class="action unpublish">Unpublish</a></li>
+            {{else}}
             <li><a href="#" class="action publish">Publish</a></li>
+            {{/if}}
         </ul>
     </div>
 </template>
