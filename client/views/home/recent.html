@@ -1,12 +1,17 @@
 <template name="homeRecent">
     <div class="recent-posts">
+    <div class="row">
         {{#each posts}}
+            <div class="col-md-3">
             {{> homeRecentPost}}
+            </div>
         {{/each}}
+    </div>
     </div>
 </template>
 
 <template name="homeRecentPost">
+    <a href="{{pathFor 'viewPost'}}">
     <div class="post">
         <div class="title">{{title}}</div>
         <div class="excerpt">{{excerpt}}</div>
@@ -14,4 +19,5 @@
             <div class="author">By {{author}}</div>
         </div>
     </div>
+    </a>
 </template>

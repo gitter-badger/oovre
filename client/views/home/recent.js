@@ -6,10 +6,11 @@ Template.homeRecent.helpers({
 
 Template.homeRecentPost.helpers({
     excerpt: function() {
-        return _.escape(this.content.substring(0, 50));
+        var content = _.escape(this.content.substring(0, 50));
+        return content;
     },
 
     author: function() {
-        return Meteor.users.findOne({_id: this.userId});
+        return getUserDetails(this.userId).profile.name;
     }
 });

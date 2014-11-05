@@ -1,18 +1,11 @@
 <template name="editPost">
 
     <div class="editor">
-        <div class="image"></div>
-        <div class="header" contenteditable="true"></div>
-        <div class="content" contenteditable="true"></div>
-        <div class="buttons">
+        <div id="dropzone" class="dropzone">
+            <span>Upload File</span>
         </div>
+        <input type="text" id="title" class="title" name="title" value="{{title}}">
+        <div id="content" class="content" contenteditable="true">{{{content}}}</div>
     </div>
-
-    <!-- <div class="post-editor" data-id="{{_id}}">
-        
-        <div class="featured-image">
-            <input type="file" name="image" id="image">
-        </div>
-    -->
 
 </template>
