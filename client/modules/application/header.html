@@ -68,9 +68,11 @@
 </template>
 
 <template name="globalActions">
+    {{#if currentUser}}
     <div class="menu actions">
         <ul>
             <li><a href="#" class="new-post">Create Post</a></li>
         </ul>
     </div>
+    {{/if}}
 </template>
