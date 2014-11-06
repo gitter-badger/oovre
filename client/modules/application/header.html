@@ -34,9 +34,6 @@
             </div>
             {{/if}}
             
-            <!-- <div class="new-post">
-                        <a href="#">New Post</a>
-                    </div> -->
             {{#if isCurrentPost}}
             {{> editorActions}}
             {{else}}
@@ -52,16 +49,19 @@
 <template name="editorActions">
     <div class="menu actions">
         <ul>
-            {{#if isCurrentPostEdit}}
-            <li><a href="{{pathFor 'viewPost'}}" class="action view">View</a></li>
-            {{else}}
-            <li><a href="{{pathFor 'editPost'}}" class="action edit">Edit</a></li>
-            {{/if}}
-            <li><a href="#" class="action delete">Delete</a></li>
-            {{#if isPublished}}
-            <li><a href="#" class="action unpublish">Unpublish</a></li>
-            {{else}}
-            <li><a href="#" class="action publish">Publish</a></li>
+            {{#if isCurrentPost}}
+                {{#if isCurrentPostEdit}}
+                <li><a href="{{pathFor 'viewPost'}}" class="action view">View</a></li>
+                {{else}}
+                <li><a href="{{pathFor 'editPost'}}" class="action edit">Edit</a></li>
+                {{/if}}
+
+                <li><a href="#" class="action delete">Delete</a></li>
+                {{#if isPublished}}
+                <li><a href="#" class="action unpublish">Unpublish</a></li>
+                {{else}}
+                <li><a href="#" class="action publish">Publish</a></li>
+                {{/if}}
             {{/if}}
         </ul>
     </div>

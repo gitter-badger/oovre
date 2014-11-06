@@ -12,5 +12,8 @@ UI.registerHelper('isCurrentPostEdit', function() {
 });
 
 UI.registerHelper('isPublished', function() {
-    return Posts.findOne(this._id).status === 'published';
+    console.log(this._id);
+    var currentPostId = this._id;
+    var currentPost = Posts.findOne(currentPostId);
+    return currentPost.status === 'published';
 });

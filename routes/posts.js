@@ -5,7 +5,11 @@ Router.map(function() {
 		data: function() {
             var post = Posts.findOne({_id: this.params._id, userId: Meteor.userId()});
 			return post;
-		}
+		},
+        action: function() {
+            this.state.set('postId', this.params._id);
+            this.render();
+        }
 	});
 
     this.route('viewPost', {
@@ -13,6 +17,10 @@ Router.map(function() {
         data: function() {
             var post = Posts.findOne({_id: this.params._id, status: 'published'});
             return post;
+        },
+        action: function() {
+            this.state.set('postId', this.params._id);
+            this.render();
         }
     });
 
